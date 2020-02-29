@@ -38,7 +38,7 @@ common:
                 level: INFO
                 formatter: simple
                 # change the root of the filename below
-                filename: C:\tmp\root\predicting_cancer_variants\Log Files\predicting_cancer_variants_all.log
+                filename: C:\nea\root\predicting_cancer_variants\Log Files\predicting_cancer_variants_all.log
                 maxBytes: 10485760 # 10MB
                 backupCount: 20
                 encoding: utf8
@@ -47,7 +47,7 @@ common:
                 level: ERROR
                 formatter: simple
                 # change the root of the filename below
-                filename: C:\tmp\root\predicting_cancer_variants\Log Files\predicting_cancer_variants_errors.log
+                filename: C:\nea\root\predicting_cancer_variants\Log Files\predicting_cancer_variants_errors.log
                 maxBytes: 10485760 # 10MB
                 backupCount: 20
                 encoding: utf8

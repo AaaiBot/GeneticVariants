@@ -32,7 +32,7 @@ common:
                 level: DEBUG # trace all debug level messages to a log file
                 formatter: simple
                 # change the root of the filename below
-                filename: C:\tmp\root\predicting_cancer_variants\Test Log Files\test_predicting_cancer_variants.log
+                filename: C:\nea\root\predicting_cancer_variants\Test Log Files\test_predicting_cancer_variants.log
                 maxBytes: 10485760 # 10MB
                 backupCount: 20
                 encoding: utf8
