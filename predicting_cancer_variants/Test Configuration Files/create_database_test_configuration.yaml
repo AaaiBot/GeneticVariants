@@ -1,0 +1,43 @@
+# when setting up for the first time, change the root of the file names below
+downloader:
+    minimum_samples_per_study: 3000
+    urls:
+        study: http://www.cbioportal.org/api/studies?projection=SUMMARY&pageSize=10000000&pageNumber=0&direction=ASC
+        gene: https://www.cbioportal.org/api/genes?projection=SUMMARY&pageSize=100000&pageNumber=1&direction=ASC
+        cancer: http://www.cbioportal.org/api/cancer-types?projection=SUMMARY&pageSize=10000000&pageNumber=0&direction=ASC
+        molecular: http://www.cbioportal.org/api/studies/{}/molecular-profiles?projection=SUMMARY&pageSize=10000000&pageNumber=0&direction=ASC
+        mutation: https://www.cbioportal.org/api/molecular-profiles/{}_mutations/mutations?sampleListId={}_all&projection=SUMMARY&pageSize=10000000&pageNumber=0&direction=ASC
+
+common:
+    database_location: Test Databases\test_database.db
+    tables_names:
+        study: test_studies
+        cancer: test_cancers
+        molecular: test_molecular_profiles
+        mutation: test_mutations
+        gene: test_genes
+    logging:
+        version: 1
+        formatters:
+            simple:
+                format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+        handlers:
+            console:
+                class: logging.StreamHandler
+                level: ERROR # only show errors on the console
+                formatter: simple
+                stream: ext://sys.stdout
+            file_handler:
+                class: logging.handlers.RotatingFileHandler
+                level: DEBUG # trace all debug level messages to a log file
+                formatter: simple
+                # change the root of the filename below
+                filename: C:\tmp\root\predicting_cancer_variants\Test Log Files\test_predicting_cancer_variants.log
+                maxBytes: 10485760 # 10MB
+                backupCount: 20
+                encoding: utf8
+        loggers:
+            predicting_cancer_variants:
+                level: DEBUG
+                handlers: [console, file_handler]
+                propagate: no
