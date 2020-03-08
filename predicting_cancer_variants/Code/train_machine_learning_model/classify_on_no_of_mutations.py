@@ -60,6 +60,7 @@ class MutationCardinalityTrainer:
         if not self.cancer_ids or len(self.cancer_ids) <= 1:
             message = "Incorrect number of cancer types. Cannot train for only", len(self.cancer_ids), "cancer types"
             self.__logger.error(message)
+            return 0
 
         mut_per_patient, c_type = [], []
         for n, index in enumerate(self.cancer_ids):
@@ -181,8 +182,6 @@ class MutationCardinalityTrainer:
         categorical_transformer = Pipeline(steps=[
             ('imputer', SimpleImputer(strategy='constant')),
             ('onehot', OneHotEncoder(handle_unknown='ignore'))])
-
-        # Append classifier to preprocessing pipeline.
 
         full_pipeline = FeatureUnion(
             transformer_list=[("num_pipeline", numeric_transformer),
